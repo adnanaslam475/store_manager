@@ -1,10 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {useTheme} from '@react-navigation/native';
-import {StyleSheet, Text, ViewPropTypes} from 'react-native';
-import {Button as ButtonRNE} from 'react-native-elements';
-import {white} from 'src/configs/colors';
-import {fonts, lineHeights, sizes} from 'src/configs/fonts';
+import { useTheme } from '@react-navigation/native';
+import { StyleSheet, Text, ViewPropTypes } from 'react-native';
+import { Button as ButtonRNE } from 'react-native-elements';
+import { white } from 'src/configs/colors';
+import { fonts, lineHeights, sizes } from 'src/configs/fonts';
 
 function Button(props) {
   const {
@@ -15,7 +15,7 @@ function Button(props) {
     loadingProps,
     ...rest
   } = props;
-  const {colors} = useTheme();
+  const { colors } = useTheme();
   const height = size === 'small' ? 41 : 51;
   const bgColor = secondary ? colors.secondaryCard : colors.primary;
   const textColor = secondary ? colors.text : white;
@@ -27,16 +27,12 @@ function Button(props) {
         styles.button,
         {
           height: height,
-          backgroundColor: bgColor,
+          backgroundColor: props.reg_clr === 'reg_clr' ? 'black' : bgColor,
         },
         buttonStyle,
       ]}
-      titleStyle={[
-        styles.title,
-        {
-          color: textColor,
-        },
-        size === 'small' && styles.titleSmall,
+      titleStyle={[styles.title, { color: textColor, },
+      size === 'small' && styles.titleSmall,
         titleStyle,
       ]}
       disabledStyle={{

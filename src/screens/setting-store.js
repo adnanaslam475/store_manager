@@ -1,17 +1,17 @@
 import * as React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useTheme} from '@react-navigation/native';
-import {StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '@react-navigation/native';
+import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import Text from 'src/components/Text';
 import Icon from 'src/components/Icon';
 import Header from 'src/components/Header';
 import ListItem from 'src/components/ListItem';
-import {fonts, lineHeights, sizes} from 'src/configs/fonts';
+import { fonts, lineHeights, sizes } from 'src/configs/fonts';
 
 function SettingStoreScreen(props) {
-  const {colors} = useTheme();
-  const {t} = useTranslation();
-  const {navigation} = props;
+  const { colors } = useTheme();
+  const { t } = useTranslation();
+  const { navigation } = props;
 
   return (
     <View style={styles.container}>

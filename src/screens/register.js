@@ -143,12 +143,14 @@ function RegisterScreen(props) {
               name: 'lock',
             }}
             value={data.password}
-            onChangeText={(value) => changeData('password', value)}
+            onChangeText={v => changeData('password', v)}
           />
           <Button
             title={t('auth:text_button_register')}
             onPress={clickRegister}
-            containerStyle={styles.button}
+            reg_clr='reg_clr'
+            containerStyle={{ ...styles.button }}
+            style={{ backgroundColor: 'black' }}
             loading={loading}
           />
         </View>
@@ -172,6 +174,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 25,
+    // backgroundColor: 'black',
+    // zIndex:20
   },
   textLogin: {
     marginVertical: 20,

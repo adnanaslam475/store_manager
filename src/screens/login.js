@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  Dimensions,
   Image,
   KeyboardAvoidingView,
 } from 'react-native';
@@ -21,7 +22,7 @@ const SOCIAL_LOGIN = false;
 const REGISTER = true;
 
 function LoginScreen(props) {
-  const { colors } = useTheme();
+  // const { colors } = useTheme();
   const { t } = useTranslation();
   const { signIn, isLoading } = React.useContext(AuthContext);
   const { navigation } = props;
@@ -43,16 +44,16 @@ function LoginScreen(props) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Image
-            source={require('src/assets/images/logo.png')}
-            style={styles.logo}
+            source={require('src/assets/images/favicon.png')}
+            style={{ ...styles.logo, width: 100, height: 100 }}
           />
           <Text h1 medium h1Style={styles.textWelcome}>
             {t('auth:text_welcome')}
           </Text>
-          <Image
+          {/* <Image
             source={require('src/assets/images/vector.png')}
             style={styles.vector}
-          />
+          /> */}
           <Form
             data={{ username, password }}
             errors={error}
@@ -78,23 +79,29 @@ function LoginScreen(props) {
                 }}
                 containerStyle={styles.inputPassword}
                 value={password}
-                onChangeText={(value) => setPassword(value)}
+                onChangeText={v => setPassword(v)}
                 error={error.password}
               />
             </View>
-            <View style={[styles.fullWidth, styles.viewForgot]}>
+            <View style={{
+              ...styles.fullWidth, ...styles.viewForgot,
+              marginBottom: -12,
+            }}>
               <Text
                 h6
-                h6Style={{ color: colors.primary }}
+                h6Style={{ color: 'black' }}
                 onPress={() => navigation.navigate('ForgotPasswordScreen')}
               >
                 {t('auth:text_forgot')}
               </Text>
             </View>
             <Button
-              title={t('auth:text_button_login')}
+              title={t('auth:text_button_login') || 'Login'}
               onPress={clickLogin}
-              buttonStyle={styles.buttonSignIn}
+              buttonStyle={{
+                ...styles.buttonSignIn,
+                backgroundColor: 'black'
+              }}
               containerStyle={styles.containerButtonSignIn}
               loading={isLoading}
             />
@@ -108,7 +115,7 @@ function LoginScreen(props) {
             </>
           )}
         </View>
-      </ScrollView>
+      </ScrollView >
       {REGISTER && (
         <Text
           secondary
@@ -116,11 +123,12 @@ function LoginScreen(props) {
           onPress={() => navigation.navigate('RegisterScreen')}>
           {t('auth:text_no_account')} <Text>{t('auth:text_sign_up')}</Text>
         </Text>
-      )}
-    </KeyboardAvoidingView>
+      )
+      }
+    </KeyboardAvoidingView >
   );
 }
-
+const { height, width } = Dimensions.get('window')
 const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
