@@ -1,12 +1,12 @@
 /**
- * Store Manager App
+ * CELLAR97 MANAGER App
  * https://github.com/facebook/react-native
  *
  * @format
  * @flow strict-local
  */
 
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 
 import OneSignal from 'react-native-onesignal';
 import {
@@ -72,7 +72,6 @@ import './src/config-i18n';
 import { ONE_SIGNAL_APP_ID } from './src/configs/constant';
 import RNRestart from 'react-native-restart';
 import { DEFAULT_LANGUAGE } from './src/configs/language';
-import { useState } from 'react';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -133,11 +132,8 @@ function MainTab() {
 }
 
 function App() {
-
   const [loading, setLoading] = useState(true);
-
   const { i18n } = useTranslation();
-
   const [state, dispatch] = useReducer(
     (prevState, action) => {
       switch (action.type) {
@@ -369,7 +365,7 @@ function App() {
           await AsyncStorage.removeItem('user');
           dispatch({ type: 'SIGN_OUT' });
         } catch (e) {
-          console.log('line372===>',e);
+          console.log('line372===>', e);
         }
       },
       signUp: async (data, cb) => {

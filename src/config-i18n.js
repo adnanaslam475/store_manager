@@ -1,8 +1,8 @@
 import i18n from 'i18next';
-import {initReactI18next} from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 
 import languages from 'src/locales';
-import {DEFAULT_LANGUAGE} from './configs/language';
+import { DEFAULT_LANGUAGE } from './configs/language';
 
 i18n.use(initReactI18next).init({
   fallbackLng: 'en',

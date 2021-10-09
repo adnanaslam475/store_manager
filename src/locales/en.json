@@ -132,7 +132,7 @@
     "text_dark_mode": "Dark mode",
     "text_language": "Languages",
     "text_rate": "Rate This App",
-    "text_version": "Copyright © 2020 all rights reserved by Rnlab.io",
+    "text_version": "Copyright © 2020 all rights reserved by Cellar97",
     "text_notifications": "Notifications",
     "text_status_update": "Status updated",
     "text_product_lowstock": "Product lowstock",
@@ -144,7 +144,7 @@
     "text_personal": "Personal",
     "text_address": "Address",
     "text_share_social": "Sharing Social",
-    "text_store_manager": "Store Manager",
+    "text_store_manager": "CELLAR97 Manager",
     "text_store": "Store",
     "text_payment": "Payment",
     "text_general_store": "General Settings",
@@ -161,7 +161,7 @@
     "text_Hello": "Hello"
   },
   "getting_start": {
-    "title_1": "Store Manager",
+    "title_1": "CELLAR97 MANAGER",
     "title_2": "Simplified Dashboard",
     "title_3": "Real Time Reporting",
     "description_1": "Now have total control over your stores and manage them with ease.",

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useTheme} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
+import { useTheme } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import RNRestart from 'react-native-restart';
 import {
   StyleSheet,
@@ -12,7 +12,7 @@ import {
   I18nManager,
   Alert,
 } from 'react-native';
-import {Avatar} from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 import Header from 'src/components/Header';
 import Icon from 'src/components/Icon';
 import Text from 'src/components/Text';
@@ -20,12 +20,12 @@ import ListItem from 'src/components/ListItem';
 import Badge from 'src/components/Badge';
 import Card from 'src/components/Card';
 import ModalLanguage from './account/ModalLanguage';
-import {AuthContext} from 'src/utils/auth-context';
-import {fonts, lineHeights, sizes} from 'src/configs/fonts';
-import {getNotifications} from 'src/services/notification-service';
+import { AuthContext } from 'src/utils/auth-context';
+import { fonts, lineHeights, sizes } from 'src/configs/fonts';
+import { getNotifications } from 'src/services/notification-service';
 import Rate from 'react-native-rate';
 import options from 'src/configs/config_rate';
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const pad = 25;
 const WIDTH_IMAGE_BACKGROUND = width - 2 * pad;
 
@@ -63,8 +63,8 @@ const languages = {
 };
 
 function AccountScreen(props) {
-  const {colors} = useTheme();
-  const {t, i18n} = useTranslation();
+  const { colors } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const {
     signOut,
@@ -75,7 +75,7 @@ function AccountScreen(props) {
     language,
   } = React.useContext(AuthContext);
 
-  const {navigation} = props;
+  const { navigation } = props;
 
   const [isTheme, setIsTheme] = React.useState(theme === 'dark');
   const [lang, setLang] = React.useState(language);
@@ -84,12 +84,12 @@ function AccountScreen(props) {
   const currentLanguage = languages[language] || language.en;
   const [countNoUnRead, setCountNoUnRead] = React.useState(0);
   const [rated, setRated] = React.useState(false);
-  const {userToken} = React.useContext(AuthContext);
+  const { userToken } = React.useContext(AuthContext);
   React.useEffect(() => {
     async function getDataCountNoti() {
       try {
         const dataCountNo = await getNotifications(
-          {notification_status: 'unread'},
+          { notification_status: 'unread' },
           userToken,
         );
         setCountNoUnRead(dataCountNo.length);
@@ -134,18 +134,18 @@ function AccountScreen(props) {
         },
         {
           text: t('common:text_cancel'),
-          onPress: () => {},
+          onPress: () => { },
           style: 'cancel',
         },
       ],
-      {cancelable: false},
+      { cancelable: false },
     );
   };
 
   const propAvatar = user?.avatar
     ? {
-        source: {uri: user.avatar},
-      }
+      source: { uri: user.avatar },
+    }
     : {};
   return (
     <View style={styles.container}>
@@ -344,7 +344,7 @@ function AccountScreen(props) {
                   Rate.rate(options, (success) => {
                     if (success) {
                       // this technically only tells us if the user successfully went to the Review Page. Whether they actually did anything, we do not know.
-                      setRated({rated: true});
+                      setRated({ rated: true });
                     }
                   });
                 }}
